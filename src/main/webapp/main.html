@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Example - example-example79-production</title>
+  
+
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.1/angular.min.js"></script>
+  
+
+  
+</head>
+<body ng-app="submitExample">
+  <script>
+  angular.module('submitExample', [])
+    .controller('ExampleController', ['$scope', '$http', function($scope, $http) {
+
+      $scope.user={
+        nickname:"",
+        email:"",
+        password:"",
+        repeat:"",
+        imdbId:"",
+      };
+
+      var data = $scope.user;
+      console.log("data before: " + data);
+
+      $scope.submitUser = function() {
+
+         console.log("data: " + data);
+
+         result = $http({
+           method: 'POST',
+           url: '/user',
+           contentType: "application/json",
+           data: data}).then(function successCallback(response) {
+                              // this callback will be called asynchronously
+                              // when the response is available
+                              alert("ok");
+                            }, function errorCallback(response) {
+                              // called asynchronously if an error occurs
+                              // or server returns response with an error status.
+                              alert("eerrr");
+                            });
+
+         console.log(result.user);
+      };
+    }]);
+</script>
+<form ng-submit="submitUser()" ng-controller="ExampleController">
+  nickname<input type="text" ng-model="user.nickname" name="nickname" />
+  <br>mail<input type="text" ng-model="user.email" name="email" />
+  <br>pass<input type="text" ng-model="user.password" name="password" />
+  <br>repeat<input type="text" ng-model="user.repeat" name="repeat" />
+  <input type="submit" id="submit" value="Submit" />
+</form>
+</body>
+</html>
