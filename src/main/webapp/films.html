@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en" ng-app="socialMovies">
+<head>
+    <meta charset="UTF-8">
+    <title>social-movies</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.1/angular.min.js"></script>
+    <script src="filmsController.js"></script>
+</head>
+<body ng-controller="FilmsController">
+<div ng-repeat="film in films">
+    Film: {{film.name}} -> rating: {{film.rating}}
+</div>
+</body>
+
+
+</html>

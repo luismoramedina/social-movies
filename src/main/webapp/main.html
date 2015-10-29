@@ -2,18 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Example - example-example79-production</title>
-  
-
+  <title>social-movies</title>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.1/angular.min.js"></script>
-  
-
-  
 </head>
 <body ng-app="submitExample">
   <script>
   angular.module('submitExample', [])
-    .controller('ExampleController', ['$scope', '$http', function($scope, $http) {
+    .controller('ExampleController', ['$scope', '$http', '$window', function($scope, $http, $window) {
 
       $scope.user={
         nickname:"",
@@ -37,7 +32,7 @@
            data: data}).then(function successCallback(response) {
                               // this callback will be called asynchronously
                               // when the response is available
-                              alert("ok");
+                              $window.location='/films.html';
                             }, function errorCallback(response) {
                               // called asynchronously if an error occurs
                               // or server returns response with an error status.

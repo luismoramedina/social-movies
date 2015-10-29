@@ -14,7 +14,7 @@ public class UsersRestController {
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
     public User register(@RequestBody User user) {
-        Assert.isTrue(user.password.equals(user.repeat), "password and repeat must be the same");
+//        Assert.isTrue(user.password.equals(user.repeat), "password and repeat must be the same");
         user.clearPasswords();
         return user;
     }
