@@ -19,7 +19,7 @@ public class RssReader {
         data.channel.items.forEach(t -> System.out.println(t.title + " -> " + getRate(t.description)));
     }
 
-    private static String getRate(String description) {
+    public static String getRate(String description) {
         String[] tokens = description.split(" ");
         return tokens[tokens.length - 1].replaceAll("\\.", "").trim();
     }

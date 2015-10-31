@@ -7,9 +7,16 @@
     <script src="filmsController.js"></script>
 </head>
 <body ng-controller="FilmsController">
-<div ng-repeat="film in films">
-    Film: {{film.name}} -> rating: {{film.rating}}
-</div>
+    <table border="1">
+        <thead>
+        <th>Nombre</th>
+        <th>Rate</th>
+        </thead>
+        <tr ng-repeat="film in films | orderBy: '-rating'">
+            <td>{{film.name}}</td>
+            <td>{{film.rating}}</td>
+        </tr>
+    </table>
 </body>
 
 
