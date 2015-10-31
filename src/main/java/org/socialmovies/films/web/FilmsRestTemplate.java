@@ -10,19 +10,20 @@ import java.util.List;
 /**
  * @author luismoramedina
  */
-@RequestMapping("/film")
 @RestController
 public class FilmsRestTemplate {
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{user}/films", method = RequestMethod.GET)
     @ResponseBody
-    public List<Film> get(@PathVariable String id) {
-        Assert.hasLength(id, "user not filled");
+    public List<Film> get(@PathVariable String user) {
+        Assert.hasLength(user, "user not filled");
         ArrayList<Film> films = new ArrayList<>();
         Film film = new Film();
         film.id = "1";
         film.name = "All about my mother";
         film.rating = 5;
+        films.add(film);
+        films.add(film);
         films.add(film);
         return films;
     }
